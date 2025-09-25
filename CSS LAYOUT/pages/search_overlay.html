@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search - ByeBye BB Luxury Parfum</title>
+    <meta name="description" content="Discover your perfect fragrance through intelligent search. Find luxury perfumes by scent family, ingredients, or emotional experience at ByeBye BB." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbyebyebb6265back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-secondary-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                        <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="text-2xl font-playfair font-bold text-primary">ByeBye BB</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a>
+                    <a href="signature_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a>
+                    <a href="featured_products.html" class="text-text-secondary hover:text-primary transition-fast">Products</a>
+                    <a href="customer_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleSearch()" class="text-primary font-medium border-b-2 border-primary pb-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button onclick="openCart()" class="text-text-secondary hover:text-primary transition-fast relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-text-secondary hover:text-primary transition-fast" onclick="toggleMobileMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-secondary-800">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a>
+                    <a href="signature_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a>
+                    <a href="featured_products.html" class="text-text-secondary hover:text-primary transition-fast">Products</a>
+                    <a href="customer_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-b from-surface to-background">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <h1 class="text-hero font-playfair font-bold mb-6">
+                    Discover Your <span class="text-primary">Signature Scent</span>
+                </h1>
+                <p class="text-xl text-text-secondary mb-8">
+                    Intelligent search powered by sensory descriptors, ingredient profiles, and emotional experiences
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Search Interface -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <!-- Primary Search Bar -->
+            <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative">
+                    <div class="flex items-center bg-surface border border-secondary-700 rounded-xl p-4 focus-within:border-primary transition-normal shadow-subtle">
+                        <svg class="w-6 h-6 text-text-secondary mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" id="mainSearch" placeholder="Search by fragrance name, scent family, or feeling..." class="flex-1 bg-transparent text-lg text-text-primary placeholder-text-secondary focus:outline-none" autocomplete="off" oninput="handleSearchInput(this.value)" />
+                        <button id="voiceSearchBtn" class="ml-4 text-text-secondary hover:text-primary transition-fast" onclick="startVoiceSearch()" title="Voice Search">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                            </svg>
+                        </button>
+                        <button class="ml-4 text-text-secondary hover:text-primary transition-fast" onclick="clearSearch()" title="Clear Search">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Search Suggestions Dropdown -->
+                    <div id="searchSuggestions" class="absolute top-full left-0 right-0 bg-surface border border-secondary-700 rounded-lg mt-2 shadow-hover z-40 hidden">
+                        <div class="p-4">
+                            <div id="suggestionsContent">
+                                <!-- Dynamic suggestions will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Search Tags -->
+                <div class="flex flex-wrap gap-3 mt-6 justify-center">
+                    <button onclick="quickSearch('confidence')" class="px-4 py-2 bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-background transition-normal">
+                        Confidence
+                    </button>
+                    <button onclick="quickSearch('luxury')" class="px-4 py-2 bg-accent/10 text-accent rounded-full hover:bg-accent hover:text-background transition-normal">
+                        Luxury
+                    </button>
+                    <button onclick="quickSearch('floral')" class="px-4 py-2 bg-secondary-700 text-text-secondary rounded-full hover:bg-secondary-600 hover:text-text-primary transition-normal">
+                        Floral
+                    </button>
+                    <button onclick="quickSearch('woody')" class="px-4 py-2 bg-secondary-700 text-text-secondary rounded-full hover:bg-secondary-600 hover:text-text-primary transition-normal">
+                        Woody
+                    </button>
+                    <button onclick="quickSearch('oriental')" class="px-4 py-2 bg-secondary-700 text-text-secondary rounded-full hover:bg-secondary-600 hover:text-text-primary transition-normal">
+                        Oriental
+                    </button>
+                </div>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="max-w-6xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-surface rounded-xl p-6 border border-secondary-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-playfair font-bold">Advanced Filters</h3>
+                        <button onclick="toggleFilters()" class="text-primary hover:text-primary-400 transition-fast">
+                            <span id="filterToggleText">Show Filters</span>
+                            <svg id="filterToggleIcon" class="w-5 h-5 inline-block ml-2 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="advancedFilters" class="hidden">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- Price Range -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-3">Price Range</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('price', 'under-1m')" />
+                                        <span class="text-text-secondary">Under Rp 1.000.000</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('price', '1m-3m')" />
+                                        <span class="text-text-secondary">Rp 1.000.000 - 3.000.000</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('price', 'over-3m')" />
+                                        <span class="text-text-secondary">Over Rp 3.000.000</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Fragrance Family -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-3">Fragrance Family</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('family', 'floral')" />
+                                        <span class="text-text-secondary">Floral</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('family', 'woody')" />
+                                        <span class="text-text-secondary">Woody</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('family', 'oriental')" />
+                                        <span class="text-text-secondary">Oriental</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('family', 'fresh')" />
+                                        <span class="text-text-secondary">Fresh</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Key Ingredients -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-3">Key Ingredients</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('ingredient', 'rose')" />
+                                        <span class="text-text-secondary">Bulgarian Rose</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('ingredient', 'oud')" />
+                                        <span class="text-text-secondary">Cambodian Oud</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('ingredient', 'bergamot')" />
+                                        <span class="text-text-secondary">Calabrian Bergamot</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('ingredient', 'sandalwood')" />
+                                        <span class="text-text-secondary">Mysore Sandalwood</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Emotional Experience -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-3">Emotional Experience</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('emotion', 'confidence')" />
+                                        <span class="text-text-secondary">Confidence</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('emotion', 'elegance')" />
+                                        <span class="text-text-secondary">Elegance</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('emotion', 'power')" />
+                                        <span class="text-text-secondary">Power</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-3 accent-primary" onchange="applyFilter('emotion', 'serenity')" />
+                                        <span class="text-text-secondary">Serenity</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-secondary-700">
+                            <button onclick="clearAllFilters()" class="text-text-secondary hover:text-primary transition-fast">
+                                Clear All Filters
+                            </button>
+                            <button onclick="applyAllFilters()" class="bg-primary text-background px-6 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                Apply Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Searches -->
+            <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="600">
+                <div class="bg-surface rounded-xl p-6 border border-secondary-800">
+                    <h3 class="text-lg font-playfair font-bold mb-4">Recent Searches</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="quickSearch('confidence elixir')" class="flex items-center px-4 py-2 bg-secondary-700 rounded-lg hover:bg-secondary-600 transition-normal">
+                            <svg class="w-4 h-4 mr-2 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-text-secondary">Confidence Elixir</span>
+                        </button>
+                        <button onclick="quickSearch('floral woody')" class="flex items-center px-4 py-2 bg-secondary-700 rounded-lg hover:bg-secondary-600 transition-normal">
+                            <svg class="w-4 h-4 mr-2 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-text-secondary">Floral Woody</span>
+                        </button>
+                        <button onclick="quickSearch('luxury oud')" class="flex items-center px-4 py-2 bg-secondary-700 rounded-lg hover:bg-secondary-600 transition-normal">
+                            <svg class="w-4 h-4 mr-2 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-text-secondary">Luxury Oud</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div id="searchResults" class="max-w-6xl mx-auto">
+                <!-- Default State - Popular Products -->
+                <div id="defaultResults" data-aos="fade-up" data-aos-delay="800">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl font-playfair font-bold">Popular Fragrances</h2>
+                        <span class="text-text-secondary">12 products</span>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Product Card 1 -->
+                        <div class="bg-surface rounded-xl overflow-hidden shadow-subtle hover:shadow-hover transition-normal group">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Confidence Elixir luxury perfume bottle" class="w-full h-64 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=400'; this.onerror=null;" />
+                                <div class="absolute top-4 right-4">
+                                    <button class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-normal">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="bg-primary text-background px-3 py-1 rounded-full text-sm font-semibold">Bestseller</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-playfair font-bold">Confidence Elixir</h3>
+                                    <div class="flex items-center">
+                                        <svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="text-sm text-text-secondary">4.9</span>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary mb-4">Oriental • Woody • Empowering</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary">Rp 2.500.000</span>
+                                    <button onclick="addToCart('confidence-elixir')" class="bg-primary text-background px-4 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="bg-surface rounded-xl overflow-hidden shadow-subtle hover:shadow-hover transition-normal group">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Elegance Essence luxury perfume bottle" class="w-full h-64 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pixabay.com/photo/2017/08/06/12/52/essential-oils-2589779_400.jpg'; this.onerror=null;" />
+                                <div class="absolute top-4 right-4">
+                                    <button class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-normal">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="bg-accent text-background px-3 py-1 rounded-full text-sm font-semibold">New</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-playfair font-bold">Elegance Essence</h3>
+                                    <div class="flex items-center">
+                                        <svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="text-sm text-text-secondary">4.8</span>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary mb-4">Floral • Fresh • Sophisticated</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary">Rp 2.200.000</span>
+                                    <button onclick="addToCart('elegance-essence')" class="bg-primary text-background px-4 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="bg-surface rounded-xl overflow-hidden shadow-subtle hover:shadow-hover transition-normal group">
+                            <div class="relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Power Potion luxury perfume bottle" class="w-full h-64 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pexels.com/photos/4226881/pexels-photo-4226881.jpeg?auto=compress&cs=tinysrgb&w=400'; this.onerror=null;" />
+                                <div class="absolute top-4 right-4">
+                                    <button class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-normal">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="bg-warning text-background px-3 py-1 rounded-full text-sm font-semibold">Limited</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-playfair font-bold">Power Potion</h3>
+                                    <div class="flex items-center">
+                                        <svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="text-sm text-text-secondary">4.9</span>
+                                    </div>
+                                </div>
+                                <p class="text-text-secondary mb-4">Woody • Spicy • Commanding</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-primary">Rp 3.200.000</span>
+                                    <button onclick="addToCart('power-potion')" class="bg-primary text-background px-4 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Results Container -->
+                <div id="searchResultsContainer" class="hidden">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl font-playfair font-bold">Search Results</h2>
+                        <span id="resultsCount" class="text-text-secondary">0 products found</span>
+                    </div>
+                    <div id="resultsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Dynamic search results will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- No Results State -->
+                <div id="noResults" class="hidden text-center py-16">
+                    <svg class="w-24 h-24 text-text-secondary mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <h3 class="text-2xl font-playfair font-bold mb-4">No fragrances found</h3>
+                    <p class="text-text-secondary mb-6 max-w-md mx-auto">
+                        Try adjusting your search terms or filters to discover your perfect scent.
+                    </p>
+                    <button onclick="clearSearch()" class="bg-primary text-background px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        Clear Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Tips Section -->
+    <section class="py-20 bg-surface">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-display font-playfair font-bold mb-6">
+                    Search <span class="text-primary">Like a Pro</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Discover advanced search techniques to find your perfect fragrance match
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-background" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-playfair font-bold mb-3">Emotional Search</h4>
+                    <p class="text-text-secondary text-sm">Search by feelings: "confident", "elegant", "powerful" to find fragrances that match your mood.</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-background" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2L13.09,8.26L20,9L13.09,9.74L12,16L10.91,9.74L4,9L10.91,8.26L12,2Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-playfair font-bold mb-3">Ingredient Focus</h4>
+                    <p class="text-text-secondary text-sm">Search specific ingredients like "rose", "oud", or "bergamot" to explore fragrances with your favorite notes.</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-secondary-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-playfair font-bold mb-3">Voice Search</h4>
+                    <p class="text-text-secondary text-sm">Use voice commands to search hands-free. Perfect for discovering fragrances while browsing on mobile.</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-warning rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-background" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-playfair font-bold mb-3">Smart Filters</h4>
+                    <p class="text-text-secondary text-sm">Combine multiple filters for precise results. Mix price range, fragrance family, and emotional experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface py-16 border-t border-secondary-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <svg class="w-8 h-8 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="text-xl font-playfair font-bold text-primary">ByeBye BB</span>
+                    </div>
+                    <p class="text-text-secondary mb-4">Luxury parfum house crafting confidence through premium fragrances.</p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-playfair font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a></li>
+                        <li><a href="signature_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a></li>
+                        <li><a href="featured_products.html" class="text-text-secondary hover:text-primary transition-fast">Products</a></li>
+                        <li><a href="customer_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care -->
+                <div>
+                    <h4 class="font-playfair font-bold text-lg mb-4">Customer Care</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Shipping Info</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Returns</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Size Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-playfair font-bold text-lg mb-4">Stay Connected</h4>
+                    <p class="text-text-secondary mb-4">Subscribe for exclusive launches and confidence tips.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 bg-background border border-secondary-700 rounded-l-lg px-4 py-2 text-text-primary focus:outline-none focus:border-primary" />
+                        <button class="bg-primary text-background px-4 py-2 rounded-r-lg hover:bg-primary-600 transition-fast">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary-800 pt-8 text-center">
+                <p class="text-text-secondary">© 2025 ByeBye BB Luxury Parfum. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-background/95 backdrop-blur-md z-50 hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="max-w-md mx-auto bg-surface rounded-lg shadow-modal">
+                <div class="flex items-center justify-between p-6 border-b border-secondary-800">
+                    <h2 class="text-xl font-playfair font-bold">Shopping Cart</h2>
+                    <button onclick="closeCart()" class="text-text-secondary hover:text-primary transition-fast">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=100&auto=format&fit=crop" alt="Product" class="w-16 h-16 object-cover rounded" />
+                            <div class="flex-1">
+                                <h4 class="font-semibold">Confidence Elixir</h4>
+                                <p class="text-text-secondary text-sm">50ml</p>
+                                <p class="text-primary font-semibold">Rp 2.500.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-secondary-800 pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-semibold">Total:</span>
+                            <span class="text-xl font-bold text-primary">Rp 2.500.000</span>
+                        </div>
+                        <button class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                            Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out',
+            once: true,
+            offset: 100
+        });
+
+        // Search functionality
+        let searchTimeout;
+        let currentFilters = {
+            price: [],
+            family: [],
+            ingredient: [],
+            emotion: []
+        };
+
+        // Sample product data
+        const products = [
+            {
+                id: 'confidence-elixir',
+                name: 'Confidence Elixir',
+                price: 2500000,
+                family: 'oriental',
+                ingredients: ['oud', 'rose'],
+                emotions: ['confidence', 'power'],
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3',
+                description: 'Oriental • Woody • Empowering',
+                badge: 'Bestseller'
+            },
+            {
+                id: 'elegance-essence',
+                name: 'Elegance Essence',
+                price: 2200000,
+                family: 'floral',
+                ingredients: ['rose', 'bergamot'],
+                emotions: ['elegance', 'confidence'],
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3',
+                description: 'Floral • Fresh • Sophisticated',
+                badge: 'New'
+            },
+            {
+                id: 'power-potion',
+                name: 'Power Potion',
+                price: 3200000,
+                family: 'woody',
+                ingredients: ['oud', 'sandalwood'],
+                emotions: ['power', 'confidence'],
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1615634260167-c8cdede054de?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3',
+                description: 'Woody • Spicy • Commanding',
+                badge: 'Limited'
+            }
+        ];
+
+        // Search suggestions data
+        const searchSuggestions = [
+            'Confidence Elixir',
+            'Elegance Essence',
+            'Power Potion',
+            'Bulgarian Rose',
+            'Cambodian Oud',
+            'Floral fragrances',
+            'Woody scents',
+            'Oriental perfumes',
+            'Luxury collection',
+            'Confidence boosting'
+        ];
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Search input handler
+        function handleSearchInput(value) {
+            clearTimeout(searchTimeout);
+            
+            if (value.length > 0) {
+                showSearchSuggestions(value);
+                searchTimeout = setTimeout(() => {
+                    performSearch(value);
+                }, 300);
+            } else {
+                hideSearchSuggestions();
+                showDefaultResults();
+            }
+        }
+
+        // Show search suggestions
+        function showSearchSuggestions(query) {
+            const suggestionsContainer = document.getElementById('searchSuggestions');
+            const suggestionsContent = document.getElementById('suggestionsContent');
+            
+            const filteredSuggestions = searchSuggestions.filter(suggestion =>
+                suggestion.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 5);
+
+            if (filteredSuggestions.length > 0) {
+                suggestionsContent.innerHTML = filteredSuggestions.map(suggestion => `
+                    <div class="flex items-center p-2 hover:bg-secondary-800 rounded cursor-pointer transition-fast" onclick="selectSuggestion('${suggestion}')">
+                        <svg class="w-4 h-4 text-text-secondary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <span class="text-text-secondary">${suggestion}</span>
+                    </div>
+                `).join('');
+                
+                suggestionsContainer.classList.remove('hidden');
+            } else {
+                hideSearchSuggestions();
+            }
+        }
+
+        // Hide search suggestions
+        function hideSearchSuggestions() {
+            document.getElementById('searchSuggestions').classList.add('hidden');
+        }
+
+        // Select suggestion
+        function selectSuggestion(suggestion) {
+            document.getElementById('mainSearch').value = suggestion;
+            hideSearchSuggestions();
+            performSearch(suggestion);
+        }
+
+        // Quick search
+        function quickSearch(query) {
+            document.getElementById('mainSearch').value = query;
+            performSearch(query);
+        }
+
+        // Perform search
+        function performSearch(query) {
+            const filteredProducts = products.filter(product => {
+                const searchTerm = query.toLowerCase();
+                return (
+                    product.name.toLowerCase().includes(searchTerm) ||
+                    product.family.toLowerCase().includes(searchTerm) ||
+                    product.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm)) ||
+                    product.emotions.some(emotion => emotion.toLowerCase().includes(searchTerm)) ||
+                    product.description.toLowerCase().includes(searchTerm)
+                );
+            });
+
+            displaySearchResults(filteredProducts, query);
+        }
+
+        // Display search results
+        function displaySearchResults(results, query) {
+            const defaultResults = document.getElementById('defaultResults');
+            const searchResultsContainer = document.getElementById('searchResultsContainer');
+            const noResults = document.getElementById('noResults');
+            const resultsGrid = document.getElementById('resultsGrid');
+            const resultsCount = document.getElementById('resultsCount');
+
+            defaultResults.classList.add('hidden');
+            
+            if (results.length > 0) {
+                searchResultsContainer.classList.remove('hidden');
+                noResults.classList.add('hidden');
+                
+                resultsCount.textContent = `${results.length} product${results.length !== 1 ? 's' : ''} found for "${query}"`;
+                
+                resultsGrid.innerHTML = results.map(product => createProductCard(product)).join('');
+            } else {
+                searchResultsContainer.classList.add('hidden');
+                noResults.classList.remove('hidden');
+            }
+        }
+
+        // Show default results
+        function showDefaultResults() {
+            document.getElementById('defaultResults').classList.remove('hidden');
+            document.getElementById('searchResultsContainer').classList.add('hidden');
+            document.getElementById('noResults').classList.add('hidden');
+        }
+
+        // Create product card HTML
+        function createProductCard(product) {
+            const badgeColors = {
+                'Bestseller': 'bg-primary text-background',
+                'New': 'bg-accent text-background',
+                'Limited': 'bg-warning text-background'
+            };
+
+            return `
+                <div class="bg-surface rounded-xl overflow-hidden shadow-subtle hover:shadow-hover transition-normal group">
+                    <div class="relative overflow-hidden">
+                        <img src="${product.image}" 
+                             alt="${product.name} luxury perfume bottle" 
+                             class="w-full h-64 object-cover group-hover:scale-105 transition-slow"
+                             onerror="this.src='https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=400'; this.onerror=null;">
+                        <div class="absolute top-4 right-4">
+                            <button class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="${badgeColors[product.badge]} px-3 py-1 rounded-full text-sm font-semibold">${product.badge}</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-playfair font-bold">${product.name}</h3>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span class="text-sm text-text-secondary">${product.rating}</span>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-4">${product.description}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary">Rp ${product.price.toLocaleString('id-ID')}</span>
+                            <button onclick="addToCart('${product.id}')" class="bg-primary text-background px-4 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Toggle filters
+        function toggleFilters() {
+            const filters = document.getElementById('advancedFilters');
+            const toggleText = document.getElementById('filterToggleText');
+            const toggleIcon = document.getElementById('filterToggleIcon');
+            
+            if (filters.classList.contains('hidden')) {
+                filters.classList.remove('hidden');
+                toggleText.textContent = 'Hide Filters';
+                toggleIcon.classList.add('rotate-180');
+            } else {
+                filters.classList.add('hidden');
+                toggleText.textContent = 'Show Filters';
+                toggleIcon.classList.remove('rotate-180');
+            }
+        }
+
+        // Apply filter
+        function applyFilter(type, value) {
+            // This would implement filter logic
+            console.log(`Applied filter: ${type} = ${value}`);
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            const checkboxes = document.querySelectorAll('#advancedFilters input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            currentFilters = { price: [], family: [], ingredient: [], emotion: [] };
+        }
+
+        // Apply all filters
+        function applyAllFilters() {
+            // This would implement comprehensive filtering
+            console.log('Applied all filters');
+        }
+
+        // Clear search
+        function clearSearch() {
+            document.getElementById('mainSearch').value = '';
+            hideSearchSuggestions();
+            showDefaultResults();
+        }
+
+        // Voice search
+        function startVoiceSearch() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                const recognition = new SpeechRecognition();
+                
+                recognition.lang = 'id-ID';
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                
+                recognition.onstart = function() {
+                    document.getElementById('voiceSearchBtn').innerHTML = `
+                        <svg class="w-6 h-6 text-primary animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    `;
+                };
+                
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('mainSearch').value = transcript;
+                    performSearch(transcript);
+                };
+                
+                recognition.onend = function() {
+                    document.getElementById('voiceSearchBtn').innerHTML = `
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    `;
+                };
+                
+                recognition.start();
+            } else {
+                alert('Voice search is not supported in this browser.');
+            }
+        }
+
+        // Toggle search (for header button)
+        function toggleSearch() {
+            // This function can be used to show/hide search interface if needed
+            document.getElementById('mainSearch').focus();
+        }
+
+        // Cart functions
+        function openCart() {
+            document.getElementById('cartModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function addToCart(productId) {
+            // Add product to cart logic
+            console.log(`Added ${productId} to cart`);
+            
+            // Show success feedback
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.classList.add('bg-success');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('bg-success');
+            }, 2000);
+        }
+
+        // Close suggestions when clicking outside
+        document.addEventListener('click', function(event) {
+            const searchContainer = document.querySelector('.relative');
+            if (!searchContainer.contains(event.target)) {
+                hideSearchSuggestions();
+            }
+        });
+
+        // Close modals on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideSearchSuggestions();
+                closeCart();
+            }
+        });
+
+        // Initialize search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus search input for better UX
+            document.getElementById('mainSearch').focus();
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
