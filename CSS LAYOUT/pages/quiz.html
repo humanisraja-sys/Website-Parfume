@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scent Finder Quiz - ByeBye BB Luxury Parfum</title>
+    <meta name="description" content="Take our personalized quiz to discover the perfect fragrance that matches your personality, lifestyle, and confidence goals." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-secondary-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <svg class="w-10 h-10 text-primary" viewBox="0 0 40 40" fill="currentColor"><path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+                    <span class="text-2xl font-playfair font-bold text-primary">ByeBye BB</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="brand_story.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Brand Story</a>
+                    <a href="signatures_collections.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Collections</a>
+                    <a href="featured_products.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Products</a>
+                    <a href="costumers_testimonials.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Testimonials</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="shopping_cart_model.html" class="text-primary hover:text-primary-600 transition-fast relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
+                        <span id="headerCartCount" class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden text-text-secondary hover:text-primary transition-fast">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-secondary-800">
+                <div class="flex flex-col space-y-4 pt-4">
+                     <a href="brand_story.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Brand Story</a>
+                    <a href="signatures_collections.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Collections</a>
+                    <a href="featured_products.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Products</a>
+                    <a href="costumers_testimonials.html" class="nav-link text-text-secondary hover:text-primary transition-fast">Testimonials</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="pt-24 min-h-screen">
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="w-full max-w-2xl mx-auto bg-surface rounded-lg shadow-modal" data-aos="fade-up">
+                    <div class="p-6 border-b border-secondary-800">
+                        <h1 class="text-3xl font-playfair font-bold text-primary text-center">Find Your Signature Scent</h1>
+                        <p class="text-center text-text-secondary mt-2">Answer a few questions to get a personalized recommendation.</p>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div id="quiz-container">
+                            <div class="mb-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span id="question-counter" class="text-sm text-text-secondary"></span>
+                                    <span id="progress-text" class="text-sm text-primary font-semibold"></span>
+                                </div>
+                                <div class="w-full bg-secondary-800 rounded-full h-2">
+                                    <div id="progress-bar" class="bg-primary h-2 rounded-full transition-all duration-300"></div>
+                                </div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 id="quiz-question" class="text-2xl font-playfair font-bold mb-6 min-h-[3em] text-center"></h3>
+                                <div id="quiz-options" class="space-y-4"></div>
+                            </div>
+                            <div class="flex justify-between">
+                                <button id="prev-btn" class="px-6 py-3 border border-secondary-700 rounded-lg font-semibold hover:border-primary transition-normal disabled:opacity-50 disabled:cursor-not-allowed">Previous</button>
+                                <button id="next-btn" class="px-6 py-3 bg-primary text-background rounded-lg font-semibold hover:bg-primary-600 transition-normal disabled:opacity-50 disabled:cursor-not-allowed">Next Question</button>
+                            </div>
+                        </div>
+                        <div id="result-container" class="hidden text-center">
+                            <h3 class="text-3xl font-playfair font-bold mb-4">Your Perfect Scent Is...</h3>
+                            <div class="mb-6">
+                                <img id="result-image" src="" alt="Recommended Perfume" class="w-48 h-48 mx-auto object-cover rounded-lg mb-4 shadow-lg"/>
+                                <h4 id="result-name" class="text-4xl font-playfair font-bold text-primary"></h4>
+                                <p id="result-description" class="text-text-secondary text-lg mt-2 max-w-md mx-auto"></p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a id="result-link" href="featured_products.html" class="inline-block bg-primary text-background px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">View Product</a>
+                                <button id="retake-quiz-btn" class="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal">Retake Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-surface py-16 border-t border-secondary-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-text-secondary">© 2025 ByeBye BB Luxury Parfum. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        AOS.init({ duration: 600, easing: 'ease-out', once: true, offset: 50 });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+        
+        function updateHeaderCartCount() {
+            const cartCountElement = document.getElementById('headerCartCount');
+            if (!cartCountElement) return;
+            try {
+                const cartItems = JSON.parse(localStorage.getItem('byebyebb_cart') || '[]');
+                cartCountElement.textContent = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
+            } catch (e) {
+                cartCountElement.textContent = '0';
+            }
+        }
+        updateHeaderCartCount();
+
+        const quizData = [
+            { question: "Which word best describes your ideal day?", options: [ { text: "Adventurous & Spontaneous", value: "fresh" }, { text: "Luxurious & Relaxing", value: "floral" }, { text: "Productive & Powerful", value: "woody" }, { text: "Mysterious & Exciting", value: "oriental" } ] },
+            { question: "What is your go-to style?", options: [ { text: "Bold and commanding suits", value: "woody" }, { text: "Elegant and sophisticated dresses", value: "floral" }, { text: "Casual chic with a modern twist", value: "fresh" }, { text: "Alluring and slightly edgy", value: "oriental" } ] },
+            { question: "Choose a landscape that calls to you.", options: [ { text: "A bustling city skyline at night", value: "oriental" }, { text: "A lush, blooming garden in spring", value: "floral" }, { text: "A dense, ancient forest", value: "woody" }, { text: "A breezy, sun-drenched coastline", value: "fresh" } ] },
+            { question: "What impression do you want to leave?", options: [ { text: "Memorable and Unforgettable", value: "oriental" }, { text: "Confident and Authoritative", value: "woody" }, { text: "Approachable and Energetic", value: "fresh" }, { text: "Graceful and Elegant", value: "floral" } ] }
+        ];
+
+        const productRecommendations = {
+            woody: { name: "Bold Statement", image: "/image/parfum 5.png", description: "A powerful woody aroma that commands respect and authority.", link: "featured_products.html#bold-statement" },
+            floral: { name: "Elegant Grace", image: "/image/parfum 4.png", description: "A sophisticated floral fragrance for moments of pure elegance.", link: "featured_products.html#elegant-grace" },
+            fresh: { name: "Victory Essence", image: "/image/parfum 6.jpg", description: "A fresh and triumphant scent to celebrate your every success.", link: "featured_products.html#victory-essence" },
+            oriental: { name: "Midnight Mystique", image: "/image/parfum 2.png", description: "An exotic and mysterious fragrance for unforgettable nights.", link: "featured_products.html#midnight-mystique" }
+        };
+
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+
+        const quizContainer = document.getElementById('quiz-container');
+        const resultContainer = document.getElementById('result-container');
+        const questionCounter = document.getElementById('question-counter');
+        const progressBar = document.getElementById('progress-bar');
+        const quizQuestion = document.getElementById('quiz-question');
+        const quizOptions = document.getElementById('quiz-options');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const retakeQuizBtn = document.getElementById('retake-quiz-btn');
+
+        function displayQuestion(index) {
+            const questionData = quizData[index];
+            quizQuestion.textContent = questionData.question;
+            quizOptions.innerHTML = '';
+
+            // PERUBAHAN UTAMA: Struktur HTML untuk opsi diubah menjadi kotak solid abu-abu
+            questionData.options.forEach(option => {
+                const isSelected = userAnswers[index] === option.value;
+                quizOptions.innerHTML += `
+                    <label class="block w-full text-left p-4 rounded-lg transition-all cursor-pointer 
+                        ${isSelected ? 'bg-primary text-background font-semibold' : 'bg-secondary-800 text-text-secondary hover:bg-secondary-700'}">
+                        <input type="radio" name="question-${index}" value="${option.value}" class="hidden" ${isSelected ? 'checked' : ''}>
+                        <span class="text-lg">${option.text}</span>
+                    </label>
+                `;
+            });
+            
+            // PERUBAHAN UTAMA: Logika disederhanakan untuk gaya solid
+            document.querySelectorAll(`input[name="question-${index}"]`).forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    userAnswers[index] = e.target.value;
+                    nextBtn.disabled = false;
+                    
+                    document.querySelectorAll(`input[name="question-${index}"]`).forEach(innerRadio => {
+                        const label = innerRadio.closest('label');
+                        if (innerRadio.checked) {
+                            label.classList.add('bg-primary', 'text-background', 'font-semibold');
+                            label.classList.remove('bg-secondary-800', 'text-text-secondary', 'hover:bg-secondary-700');
+                        } else {
+                            label.classList.remove('bg-primary', 'text-background', 'font-semibold');
+                            label.classList.add('bg-secondary-800', 'text-text-secondary', 'hover:bg-secondary-700');
+                        }
+                    });
+                });
+            });
+
+            updateProgress();
+            updateNavButtons();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+            questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+        }
+
+        function updateNavButtons() {
+            prevBtn.disabled = currentQuestionIndex === 0;
+            nextBtn.disabled = userAnswers[currentQuestionIndex] === undefined;
+            nextBtn.textContent = (currentQuestionIndex === quizData.length - 1) ? 'Show Result' : 'Next Question';
+        }
+
+        function calculateResult() {
+            const scores = { woody: 0, floral: 0, fresh: 0, oriental: 0 };
+            Object.values(userAnswers).forEach(answer => scores[answer]++);
+            return Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        }
+
+        function displayResult() {
+            const resultKey = calculateResult();
+            const recommendation = productRecommendations[resultKey];
+            document.getElementById('result-image').src = recommendation.image;
+            document.getElementById('result-name').textContent = recommendation.name;
+            document.getElementById('result-description').textContent = recommendation.description;
+            document.getElementById('result-link').href = recommendation.link;
+            quizContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+        }
+
+        function showResultWithAlert() {
+            Swal.fire({
+                title: 'Calculating Your Perfect Scent...',
+                timer: 1500,
+                allowOutsideClick: false,
+                background: '#0D0D0D',
+                color: '#FFFFFF',
+                didOpen: () => {
+                    Swal.showLoading();
+                    const loader = Swal.getPopup().querySelector('.swal2-loader');
+                    if (loader) loader.style.borderColor = '#FFD700 transparent';
+                }
+            }).then(() => {
+                displayResult();
+            });
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            resultContainer.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            displayQuestion(0);
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion(currentQuestionIndex);
+            } else {
+                showResultWithAlert();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion(currentQuestionIndex);
+            }
+        });
+
+        retakeQuizBtn.addEventListener('click', resetQuiz);
+
+        displayQuestion(0);
+    });
+    </script>
+</body>
+</html>

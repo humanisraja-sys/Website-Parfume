@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Italiana:wght@400&display=swap');
 
 *, ::before, ::after{
@@ -158,7 +156,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+      tab-size: 4;
   /* 3 */
   font-family: Inter, sans-serif;
   /* 4 */
@@ -527,7 +525,7 @@ Make sure disabled buttons don't get the pointer cursor.
 /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
 2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-   This can trigger a poorly considered lint error in some tools but is included by design.
+    This can trigger a poorly considered lint error in some tools but is included by design.
 */
 
 img,
@@ -1399,7 +1397,7 @@ body {
 
 .object-cover{
   -o-object-fit: cover;
-     object-fit: cover;
+      object-fit: cover;
 }
 
 .p-12{

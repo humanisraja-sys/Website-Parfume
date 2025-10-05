@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Ad: Éclat d'Or - ByeBye BB Luxury Parfum</title>
+    <meta name="description" content="Experience the essence of modern luxury. A cinematic journey into the heart of Éclat d'Or, the new signature scent by ByeBye BB." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-secondary-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <svg class="w-10 h-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                        <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="text-2xl font-playfair font-bold text-primary">ByeBye BB</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <a href="shopping_cart_model.html" class="text-primary hover:text-primary-600 transition-fast relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                        </svg>
+                        <span id="headerCartCount" class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24 min-h-screen">
+        <section class="py-12 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    
+                    <div class="relative mb-12 border border-primary/20 p-2 rounded-lg shadow-subtle" data-aos="fade-up">
+                        <video id="promoVideo" class="w-full rounded-md" autoplay muted playsinline>
+                            <source src="/image/Luxury_Perfume_Commercial_Generation.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                        
+                        <div id="videoOverlay" class="absolute inset-0 bg-background/70 backdrop-blur-sm flex flex-col items-center justify-center gap-6 rounded-md hidden transition-opacity duration-300">
+                            <h2 class="text-4xl font-playfair font-bold text-white">Interested?</h2>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="featured_products.html" class="bg-primary text-background px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-lg shadow-lg">
+                                    Wanna Buy?
+                                </a>
+                                <button id="replayButton" class="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal text-lg">
+                                    Replay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <h1 class="text-display font-playfair font-bold mb-4">
+                            Éclat d'Or: <span class="text-primary">The Radiance Within</span>
+                        </h1>
+                        <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8 leading-relaxed">
+                            Di setiap tetesnya, Éclat d'Or menangkap esensi cahaya keemasan yang fana. Sebuah komposisi sensual dari anggrek langka, kristal berkilau, dan sentuhan misterius, dirancang untuk membangkitkan aura kemewahan dan kepercayaan diri yang tak tertandingi. Ini bukan sekadar parfum, ini adalah perhiasan tak kasat mata yang menceritakan kisah eksklusivitas Anda.
+                        </p>
+                        <a href="featured_products.html" class="inline-block bg-primary text-background px-10 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-lg">
+                            Discover The Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-background py-16 border-t border-secondary-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-text-secondary">© 2025 ByeBye BB Luxury Parfum. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Inisialisasi AOS untuk animasi
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-quad',
+            once: true
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const promoVideo = document.getElementById('promoVideo');
+            const videoOverlay = document.getElementById('videoOverlay');
+            const replayButton = document.getElementById('replayButton');
+
+            // Fungsi untuk mengupdate angka pada ikon keranjang
+            function updateHeaderCartCount() {
+                const cartCountElement = document.getElementById('headerCartCount');
+                if (cartCountElement) {
+                    try {
+                        const savedCart = localStorage.getItem('byebyebb_cart') || '[]';
+                        const cartItems = JSON.parse(savedCart);
+                        const totalItems = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
+                        cartCountElement.textContent = totalItems;
+                    } catch (e) {
+                        console.error("Gagal memuat data keranjang:", e);
+                        cartCountElement.textContent = '0';
+                    }
+                }
+            }
+            
+            updateHeaderCartCount();
+
+            if(promoVideo && videoOverlay && replayButton) {
+                // Saat video selesai, tampilkan overlay dengan tombol CTA
+                promoVideo.addEventListener('ended', () => {
+                    videoOverlay.classList.remove('hidden');
+                });
+
+                // Saat tombol 'Replay' diklik
+                replayButton.addEventListener('click', () => {
+                    // Sembunyikan kembali overlay
+                    videoOverlay.classList.add('hidden');
+                    // Putar ulang video dari awal
+                    promoVideo.currentTime = 0;
+                    promoVideo.play();
+                });
+
+                // Coba putar video secara otomatis
+                promoVideo.play().catch(error => {
+                    console.error("Autoplay was prevented:", error);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

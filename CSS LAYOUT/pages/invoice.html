@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice - ByeBye BB Luxury Parfum</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-secondary-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10 text-primary" viewBox="0 0 40 40" fill="currentColor"><path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+                    <span class="text-2xl font-playfair font-bold text-primary">ByeBye BB</span>
+                </div>
+                 <div class="flex items-center space-x-4">
+                    <a href="shopping_cart_model.html" class="text-primary hover:text-primary-600 transition-fast relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
+                        <span id="headerCartCount" class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24 min-h-screen">
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <div class="text-center mb-8">
+                        <h1 class="text-display font-playfair font-bold mb-2">Terima Kasih Atas Pesanan Anda!</h1>
+                        <p class="text-text-secondary">Berikut adalah rincian pesanan Anda.</p>
+                    </div>
+
+                    <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 p-8 md:p-12">
+                        <div class="flex flex-col sm:flex-row justify-between items-start pb-6 border-b border-secondary-800 mb-8">
+                            <div>
+                                <h2 class="text-2xl font-playfair font-bold text-primary mb-2">INVOICE</h2>
+                                <p class="text-text-secondary">Order ID: <span id="orderId"></span></p>
+                                <p class="text-text-secondary">Tanggal: <span id="orderDate"></span></p>
+                            </div>
+                            <div class="mt-4 sm:mt-0 sm:text-right">
+                                <p class="font-semibold">ByeBye BB Luxury Parfum</p>
+                                <p class="text-text-secondary text-sm">Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <div id="customerDetailsContainer" class="pb-6 border-b border-secondary-800 mb-8">
+                            <h3 class="font-semibold mb-2">Dikirim Kepada:</h3>
+                            <p id="customerName" class="font-bold"></p>
+                            <p id="customerAddress" class="text-text-secondary"></p>
+                            <p id="customerCity" class="text-text-secondary"></p>
+                            <p id="customerPhone" class="text-text-secondary"></p>
+                        </div>
+                        
+                        <div class="hidden md:flex font-semibold text-text-secondary mb-4">
+                            <div class="w-1/2">PRODUK</div>
+                            <div class="w-1/4 text-center">JUMLAH</div>
+                            <div class="w-1/4 text-right">TOTAL</div>
+                        </div>
+
+                        <div id="invoiceItemsContainer" class="space-y-6"></div>
+
+                        <div id="invoiceSummaryContainer" class="mt-8 pt-6 border-t border-secondary-800 space-y-3"></div>
+                        
+                        <div class="mt-12 text-center space-x-4">
+                            <a href="featured_products.html" class="bg-primary text-background px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                Kembali Belanja
+                            </a>
+                            <button onclick="window.print()" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal">
+                                Cetak Invoice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script>
+    AOS.init({ duration: 600, easing: 'ease-out', once: true, offset: 100 });
+
+    const formatCurrency = (amount) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(amount);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const itemsContainer = document.getElementById('invoiceItemsContainer');
+        const summaryContainer = document.getElementById('invoiceSummaryContainer');
+        const customerDetailsContainer = document.getElementById('customerDetailsContainer');
+
+        const savedInvoice = localStorage.getItem('byebyebb_invoice_data');
+
+        if (!savedInvoice) {
+            itemsContainer.innerHTML = '<p class="text-center text-error">Tidak ada data invoice yang ditemukan. Mungkin Anda me-refresh halaman ini.</p>';
+            summaryContainer.style.display = 'none';
+            customerDetailsContainer.style.display = 'none';
+            return;
+        }
+
+        try {
+            const invoiceData = JSON.parse(savedInvoice);
+            const { items, subtotal, giftCost, discount, total, customerDetails } = invoiceData;
+
+            document.getElementById('orderId').textContent = `BB-${Date.now().toString().slice(-6)}`;
+            document.getElementById('orderDate').textContent = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+            document.getElementById('customerName').textContent = customerDetails.name;
+            document.getElementById('customerAddress').textContent = customerDetails.address;
+            document.getElementById('customerCity').textContent = `${customerDetails.city}, ${customerDetails.postalCode}`;
+            document.getElementById('customerPhone').textContent = `Telp: ${customerDetails.phone}`;
+
+            itemsContainer.innerHTML = '';
+            items.forEach(item => {
+                const itemHtml = `
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 flex items-center mb-2 md:mb-0">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg mr-4" />
+                            <div>
+                                <p class="font-bold">${item.name}</p>
+                                <p class="text-sm text-text-secondary">${formatCurrency(item.price)}</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/4 text-left md:text-center">
+                            <span class="md:hidden">Jumlah: </span>${item.quantity}
+                        </div>
+                        <div class="w-full md:w-1/4 text-left md:text-right font-semibold">
+                           <span class="md:hidden">Subtotal: </span>${formatCurrency(item.price * item.quantity)}
+                        </div>
+                    </div>
+                `;
+                itemsContainer.innerHTML += itemHtml;
+            });
+
+            summaryContainer.innerHTML = `
+                <div class="flex justify-between"><span class="text-text-secondary">Subtotal</span><span>${formatCurrency(subtotal)}</span></div>
+                ${discount > 0 ? `<div class="flex justify-between"><span class="text-text-secondary">Diskon</span><span class="text-success">-${formatCurrency(discount)}</span></div>` : ''}
+                <div class="flex justify-between"><span class="text-text-secondary">Pengiriman</span><span class="text-success">Gratis</span></div>
+                <div class="flex justify-between"><span class="text-text-secondary">Kemasan Hadiah</span><span>${formatCurrency(giftCost)}</span></div>
+                <hr class="border-secondary-800 my-2" />
+                <div class="flex justify-between text-xl font-bold"><span>Grand Total</span><span class="text-primary">${formatCurrency(total)}</span></div>
+            `;
+
+            localStorage.removeItem('byebyebb_invoice_data');
+            document.getElementById('headerCartCount').textContent = '0';
+
+        } catch (error) {
+            console.error("Gagal memproses data invoice:", error);
+            itemsContainer.innerHTML = '<p class="text-center text-error">Terjadi kesalahan saat memproses pesanan Anda.</p>';
+        }
+    });
+</script>
+</body>
+</html>

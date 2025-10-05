@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran - ByeBye BB Luxury Parfum</title>
+    <meta name="description" content="Selesaikan pesanan Anda dengan metode Bayar di Tempat (COD) yang aman dan nyaman." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-secondary-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10 text-primary" viewBox="0 0 40 40" fill="currentColor"><path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+                    <span class="text-2xl font-playfair font-bold text-primary">ByeBye BB</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a>
+                    <a href="signature_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a>
+                    <a href="featured_products.html" class="text-text-secondary hover:text-primary transition-fast">Products</a>
+                    <a href="customer_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="shopping_cart_model.html" class="text-primary hover:text-primary-600 transition-fast relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
+                        <span id="headerCartCount" class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24 min-h-screen">
+        <section class="py-12 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="text-display font-playfair font-bold mb-4">
+                        Konfirmasi <span class="text-primary">Pembayaran</span>
+                    </h1>
+                    <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                        Satu langkah terakhir untuk menyelesaikan pesanan Anda.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <form id="checkoutForm" class="grid lg:grid-cols-5 gap-12">
+                    <div class="lg:col-span-3 bg-surface rounded-lg shadow-subtle border border-secondary-800 p-8" data-aos="fade-right">
+                        <h3 class="text-2xl font-playfair font-bold mb-6">Alamat Pengiriman</h3>
+                        <div class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium mb-2">Nama Depan</label>
+                                    <input type="text" id="firstName" class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" required />
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium mb-2">Nama Belakang</label>
+                                    <input type="text" id="lastName" class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" required />
+                                </div>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium mb-2">Nomor Telepon</label>
+                                <input type="tel" id="phone" class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="+62 812..." required />
+                            </div>
+                            <div>
+                                <label for="address" class="block text-sm font-medium mb-2">Alamat Lengkap</label>
+                                <textarea id="address" class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" rows="3" placeholder="Nama jalan, nomor rumah, RT/RW..." required></textarea>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="city" class="block text-sm font-medium mb-2">Kota/Kabupaten</label>
+                                    <input type="text" id="city" class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" required />
+                                </div>
+                                <div>
+                                    <label for="postalCode" class="block text-sm font-medium mb-2">Kode Pos</label>
+                                    <input type="text" id="postalCode" class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" pattern="[0-9]{5}" required title="Harap masukkan 5 digit kode pos" />
+                                    <p class="text-xs text-text-secondary mt-1">Harus terdiri dari 5 digit angka.</p> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2">
+                        <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 p-8 sticky top-32" data-aos="fade-left">
+                            <h3 class="text-2xl font-playfair font-bold mb-6">Ringkasan Pesanan</h3>
+                            <div id="summaryItems" class="space-y-4 mb-6 max-h-64 overflow-y-auto pr-2"></div>
+                            <div id="summaryTotals" class="border-t border-secondary-800 pt-4 space-y-2 mb-6"></div>
+                            
+                            <div class="bg-primary/10 p-4 rounded-lg text-center mb-6 border border-primary/20">
+                                <h4 class="font-semibold text-text-primary mb-2">Metode Pembayaran</h4>
+                                <div class="flex items-center justify-center space-x-2">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8a1 1 0 001-1z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h2a1 1 0 001-1V7a1 1 0 00-1-1h-2"></path></svg>
+                                    <span class="text-lg font-semibold text-text-primary">Bayar di Tempat (COD)</span>
+                                </div>
+                                <p class="text-sm text-text-secondary mt-2">Pastikan Anda berada di alamat tujuan dan siapkan uang pas.</p>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary text-background py-4 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                                Konfirmasi & Pesan (COD)
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+<script>
+    AOS.init({ duration: 600, easing: 'ease-out', once: true, offset: 100 });
+    const formatCurrency = (amount) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(amount);
+
+    const renderCheckoutSummary = (cart, options) => {
+        const itemsContainer = document.getElementById('summaryItems');
+        const totalsContainer = document.getElementById('summaryTotals');
+        itemsContainer.innerHTML = '';
+        
+        cart.forEach(item => {
+            itemsContainer.innerHTML += `
+                <div class="flex items-center space-x-4">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg" />
+                    <div class="flex-1">
+                        <h4 class="font-semibold">${item.name}</h4>
+                        <p class="text-text-secondary text-sm">Jumlah: ${item.quantity}</p>
+                    </div>
+                    <span class="font-semibold">${formatCurrency(item.price * item.quantity)}</span>
+                </div>`;
+        });
+
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const giftCost = options.giftPackaging ? 150000 : 0;
+        const discount = subtotal > 1000000 ? 300000 : 0;
+        const total = subtotal + giftCost - discount;
+
+        totalsContainer.innerHTML = `
+            <div class="flex justify-between"><span class="text-text-secondary">Subtotal</span><span>${formatCurrency(subtotal)}</span></div>
+            ${discount > 0 ? `<div class="flex justify-between"><span class="text-text-secondary">Diskon</span><span class="text-success">-${formatCurrency(discount)}</span></div>` : ''}
+            <div class="flex justify-between"><span class="text-text-secondary">Kemasan Hadiah</span><span>${formatCurrency(giftCost)}</span></div>
+            <div class="flex justify-between"><span class="text-text-secondary">Pengiriman</span><span class="text-success">Gratis</span></div>
+            <hr class="border-secondary-700 my-2" />
+            <div class="flex justify-between text-lg font-bold">
+                <span>Total Bayar</span>
+                <span class="text-primary">${formatCurrency(total)}</span>
+            </div>`;
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const allProducts = [
+            { id: 'prod001', name: 'Confidence Elixir', price: 2750000, image: '/image/parfum 3.png' },
+            { id: 'prod002', name: 'Victory Essence', price: 3150000, image: '/image/parfum 6.jpg' },
+            { id: 'prod003', name: 'Bold Statement', price: 4500000, image: '/image/parfum 5.png' },
+            { id: 'prod004', name: 'Elegant Grace', price: 2950000, image: '/image/parfum 4.png' },
+            { id: 'prod005', name: 'Power Surge', price: 2250000, image: '/image/parfum.png' },
+            { id: 'prod006', name: 'Midnight Mystique', price: 3750000, image: '/image/parfum 2.png' }
+        ];
+
+        const savedCartRaw = localStorage.getItem('byebyebb_cart');
+        const savedOptions = localStorage.getItem('byebyebb_order_options');
+        
+        let cartData = [];
+        try {
+            cartData = savedCartRaw ? JSON.parse(savedCartRaw) : [];
+        } catch(e) { console.error("Error parsing cart data", e); }
+
+        const cartItems = cartData.map(item => {
+            const product = allProducts.find(p => p.id === item.id);
+            return product ? { ...product, quantity: item.quantity } : null;
+        }).filter(Boolean);
+
+        const options = savedOptions ? JSON.parse(savedOptions) : { giftPackaging: false };
+
+        if (cartItems.length === 0) {
+            Swal.fire({
+                icon: 'warning', 
+                title: 'Keranjang Anda Kosong', 
+                text: 'Anda akan diarahkan kembali untuk memilih produk.', 
+                timer: 2500, 
+                showConfirmButton: false
+            }).then(() => { window.location.href = 'featured_products.html'; });
+            return;
+        }
+
+        renderCheckoutSummary(cartItems, options);
+        const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('headerCartCount').textContent = totalItems;
+    });
+    
+    document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+        const form = e.target;
+        if (!form.checkValidity()) { return; }
+        e.preventDefault();
+
+        const allProducts = [
+            { id: 'prod001', name: 'Confidence Elixir', price: 2750000, image: '/image/parfum 3.png' },
+            { id: 'prod002', name: 'Victory Essence', price: 3150000, image: '/image/parfum 6.jpg' },
+            { id: 'prod003', name: 'Bold Statement', price: 4500000, image: '/image/parfum 5.png' },
+            { id: 'prod004', name: 'Elegant Grace', price: 2950000, image: '/image/parfum 4.png' },
+            { id: 'prod005', name: 'Power Surge', price: 2250000, image: '/image/parfum.png' },
+            { id: 'prod006', name: 'Midnight Mystique', price: 3750000, image: '/image/parfum 2.png' }
+        ];
+
+        const savedCartRaw = localStorage.getItem('byebyebb_cart');
+        const savedOptions = localStorage.getItem('byebyebb_order_options');
+        let cartData = savedCartRaw ? JSON.parse(savedCartRaw) : [];
+        const cartItems = cartData.map(item => {
+            const product = allProducts.find(p => p.id === item.id);
+            return product ? { ...product, quantity: item.quantity } : null;
+        }).filter(Boolean);
+        const options = savedOptions ? JSON.parse(savedOptions) : { giftPackaging: false };
+
+        const subtotal = cartItems.reduce((sum, item) => sum + (Number(item.price) * Number(item.quantity)), 0);
+        const giftCost = options.giftPackaging ? 150000 : 0;
+        const discount = subtotal > 1000000 ? 300000 : 0;
+        const total = subtotal + giftCost - discount;
+
+        const invoiceData = {
+            items: cartItems,
+            subtotal: subtotal,
+            giftCost: giftCost,
+            discount: discount,
+            total: total,
+            customerDetails: {
+                name: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                postalCode: document.getElementById('postalCode').value
+            }
+        };
+
+        localStorage.setItem('byebyebb_invoice_data', JSON.stringify(invoiceData));
+        localStorage.removeItem('byebyebb_cart');
+        localStorage.removeItem('byebyebb_order_options');
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Pesanan Diterima!',
+            text: 'Terima kasih! Pesanan Anda akan segera kami proses.',
+            timer: 3000,
+            showConfirmButton: false,
+            willClose: () => {
+                window.location.href = 'invoice.html';
+            }
+        });
+    });
+</script>
+</body>
+</html>

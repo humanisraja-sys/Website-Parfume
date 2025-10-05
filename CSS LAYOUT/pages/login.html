@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ByeByeBB Login</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0f1419;
+      overflow: hidden;
+    }
+    /* ... (CSS Anda yang lain tetap sama, tidak perlu diubah) ... */
+     /* ===== Background Slider ===== */
+    .background-slider {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+      display: flex; flex-direction: column; gap: 30px; padding: 20px 0;
+    }
+    .image-track {
+      display: flex; width: max-content;
+      animation: slideLeft 60s linear infinite alternate;
+    }
+    .image-track.reverse {
+      animation: slideRight 60s linear infinite alternate;
+    }
+    .bg-image {
+      margin: 0 20px; flex-shrink: 0; width: 180px; height: 110px;
+      border-radius: 12px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .bg-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.85); user-select: none; pointer-events: none;
+    }
+    @keyframes slideLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes slideRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+    .container {
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; position: relative; z-index: 1; padding: 20px;
+    }
+    .login-card {
+      background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px);
+      border-radius: 16px; padding: 32px 28px; max-width: 380px; width: 100%;
+      color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.4); text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+    .login-card h1 {
+      font-family: 'Playfair Display', serif; font-size: 2rem;
+      margin-bottom: 8px; color: #FFD700;
+    }
+    .login-card p { font-size: 0.9rem; color: #ddd; margin-bottom: 20px; }
+    .login-card input {
+      width: 100%; padding: 12px 14px; margin-bottom: 14px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1);
+      color: #fff; font-size: 0.9rem;
+    }
+    .login-card input::placeholder { color: #aaa; }
+    .login-card input:focus { outline: none; border-color: #FFD700; background: rgba(255,255,255,0.2); }
+    .login-card button {
+      width: 100%; padding: 12px; background: #FFD700; color: #000;
+      font-weight: 600; border: none; border-radius: 8px; font-size: 1rem;
+      cursor: pointer; transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .login-card button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
+    .login-card .footer { margin-top: 14px; font-size: 0.8rem; color: #ccc; }
+    .login-card .footer a { color: #FFD700; text-decoration: none; font-weight: 500; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* === [TAMBAHAN] Style Kustom untuk SweetAlert agar sesuai tema === */
+    .swal2-popup {
+      background: #1a222c !important;
+      border-radius: 12px !important;
+    }
+    .swal2-title {
+      color: #FFD700 !important;
+    }
+    .swal2-html-container {
+      color: #ddd !important;
+    }
+    .swal2-confirm {
+      background-color: #FFD700 !important;
+      color: #000 !important;
+      box-shadow: none !important; /* Menghilangkan shadow aneh pada tombol */
+    }
+    .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+      background-color: #f27474 !important; /* Warna ikon error */
+    }
+  </style>
+</head>
+<body>
+  <div class="background-slider">
+    <div class="image-track">
+      <div class="bg-image"><img src="/image/parfum.png" alt="Parfum 1"></div>
+      <div class="bg-image"><img src="/image/parfum 2.png" alt="Parfum 2"></div>
+      <div class="bg-image"><img src="/image/parfum 3.png" alt="Parfum 3"></div>
+      <div class="bg-image"><img src="/image/parfum 4.png" alt="Parfum 4"></div>
+      <div class="bg-image"><img src="/image/parfum 5.png" alt="Parfum 5"></div>
+    </div>
+    <div class="image-track reverse">
+      <div class="bg-image"><img src="/image/parfum.png" alt="Parfum 6"></div>
+      <div class="bg-image"><img src="/image/parfum 2.png" alt="Parfum 7"></div>
+      <div class="bg-image"><img src="/image/parfum 3.png" alt="Parfum 8"></div>
+      <div class="bg-image"><img src="/image/parfum 4.png" alt="Parfum 9"></div>
+      <div class="bg-image"><img src="/image/parfum 5.png" alt="Parfum 10"></div>
+    </div>
+    <div class="image-track">
+      <div class="bg-image"><img src="/image/parfum.png" alt="Parfum 11"></div>
+      <div class="bg-image"><img src="/image/parfum 2.png" alt="Parfum 12"></div>
+      <div class="bg-image"><img src="/image/parfum 3.png" alt="Parfum 13"></div>
+      <div class="bg-image"><img src="/image/parfum 4.png" alt="Parfum 14"></div>
+      <div class="bg-image"><img src="/image/parfum 5.png" alt="Parfum 15"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form class="login-card" id="loginForm">
+      <h1>ByeBye BB</h1>
+      <p>Welcome Back, Please Login</p>
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <div class="footer">
+        Don’t have an account? <a href="signup.html">Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value.trim();
+
+      // Mengambil data dari localStorage
+      const storedEmail = localStorage.getItem("userEmail");
+      const storedPassword = localStorage.getItem("userPassword");
+      const storedName = localStorage.getItem("userFullName") || 'User'; // Ambil nama, jika tidak ada beri nama 'User'
+
+      if (email === storedEmail && password === storedPassword) {
+        // --- Notifikasi jika SUKSES ---
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successful!',
+          text: `Welcome back, ${storedName}! Redirecting...`,
+          timer: 2000,
+          showConfirmButton: false,
+        });
+        setTimeout(() => {
+          window.location.href = 'index.html'; // Pindah ke halaman utama
+        }, 2000);
+      } else {
+        // --- Notifikasi jika GAGAL ---
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: 'Incorrect email or password. Please try again.',
+          // Menambahkan animasi getar
+          showClass: {
+            popup: 'animate__animated animate__shakeX'
+          },
+        });
+      }
+    });
+  </script>
+</body>
+</html>

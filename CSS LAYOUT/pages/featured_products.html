@@ -25,13 +25,13 @@
                 </div>
 
                 <!-- Desktop Navigation -->
+                     <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a>
-                    <a href="signature_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a>
+                    <a href="signatures_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a>
                     <a href="featured_products.html" class="text-primary font-medium border-b-2 border-primary pb-1">Products</a>
-                    <a href="customer_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a>
+                    <a href="costumers_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a>
                 </div>
-
                 <!-- Action Buttons -->
                 <div class="flex items-center space-x-4">
                     <button onclick="openSearch()" class="text-text-secondary hover:text-primary transition-fast">
@@ -39,12 +39,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                         </svg>
                     </button>
-                    <button onclick="openCart()" class="text-text-secondary hover:text-primary transition-fast relative">
+                    <a href="shopping_cart_model.html" class="text-primary hover:text-primary-600 transition-fast relative">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
                         </svg>
-                        <span class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
-                    </button>
+                        <span id="headerCartCount" class="absolute -top-2 -right-2 bg-primary text-background text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
                     
                     <!-- Mobile Menu Button -->
                     <button class="md:hidden text-text-secondary hover:text-primary transition-fast" onclick="toggleMobileMenu()">
@@ -87,9 +87,9 @@
                 <button onclick="scrollToProducts()" class="bg-primary text-background px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
                     Shop Best Sellers
                 </button>
-                <button onclick="openScientFinder()" class="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal">
-                    Find Your Scent
-                </button>
+                <a href="quiz.html" class="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal">
+    Find Your Scent
+</a>
             </div>
         </div>
 
@@ -150,7 +150,7 @@
     </section>
 
     <!-- Featured Products Grid -->
-    <section id="products" class="py-20">
+<section id="products" class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-display font-playfair font-bold mb-6">
@@ -161,48 +161,30 @@
                 </p>
             </div>
 
-            <!-- Product Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Product 1 - Confidence Elixir -->
-                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal flex flex-col" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Confidence Elixir luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
                         <div class="absolute top-4 left-4">
                             <span class="bg-primary text-background px-3 py-1 rounded-full text-sm font-semibold">Best Seller</span>
                         </div>
-                        <div class="absolute top-4 right-4">
-                            <button onclick="toggleWishlist(1)" class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-primary transition-fast">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-xl font-playfair font-bold">Confidence Elixir</h3>
                             <div class="flex items-center space-x-1">
                                 <div class="flex text-primary">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
                                 <span class="text-sm text-text-secondary ml-1">(4.9)</span>
                             </div>
                         </div>
-                        <p class="text-text-secondary mb-4 text-sm">A bold blend of Bulgarian rose, Cambodian oud, and bergamot that transforms doubt into unshakeable confidence.</p>
+                        <p class="text-text-secondary mb-4 text-sm flex-grow">A bold blend of Bulgarian rose, Cambodian oud, and bergamot that transforms doubt into unshakeable confidence.</p>
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center space-x-2">
                                 <span class="text-2xl font-bold text-primary">Rp 2.750.000</span>
@@ -214,443 +196,276 @@
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Longevity:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Projection:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button onclick="openProductModal(1)" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        <div class="flex space-x-3 mt-auto pt-6">
+                            <button onclick="openProductModal('prod001')" class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-sm">
                                 View Details
                             </button>
-                            <button onclick="addToCart(1)" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
-                                </svg>
+                            <button onclick="addToCart('prod001')" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2 - Victory Essence -->
-                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal flex flex-col" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative overflow-hidden">
                         <img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Victory Essence luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pixabay.com/photo/2017/08/06/12/52/essential-oils-2589779_1280.jpg'; this.onerror=null;" />
                         <div class="absolute top-4 left-4">
                             <span class="bg-accent text-background px-3 py-1 rounded-full text-sm font-semibold">New Arrival</span>
                         </div>
-                        <div class="absolute top-4 right-4">
-                            <button onclick="toggleWishlist(2)" class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-primary transition-fast">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-xl font-playfair font-bold">Victory Essence</h3>
                             <div class="flex items-center space-x-1">
                                 <div class="flex text-primary">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-secondary-600" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 text-secondary-600" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
                                 <span class="text-sm text-text-secondary ml-1">(4.7)</span>
                             </div>
                         </div>
-                        <p class="text-text-secondary mb-4 text-sm">Celebrate your achievements with sandalwood, jasmine, and amber - a scent that embodies success and triumph.</p>
+                        <p class="text-text-secondary mb-4 text-sm flex-grow">Celebrate your achievements with sandalwood, jasmine, and amber - a scent that embodies success and triumph.</p>
                         <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl font-bold text-primary">Rp 3.150.000</span>
-                            </div>
+                            <span class="text-2xl font-bold text-primary">Rp 3.150.000</span>
                             <span class="text-sm text-accent">75ml</span>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Longevity:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Projection:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button onclick="openProductModal(2)" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        <div class="flex space-x-3 mt-auto pt-6">
+                            <button onclick="openProductModal('prod002')" class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-sm">
                                 View Details
                             </button>
-                            <button onclick="addToCart(2)" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
-                                </svg>
+                            <button onclick="addToCart('prod002')" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3 - Bold Statement -->
-                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal flex flex-col" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.pixabay.com/photo/2017/08/06/12/52/essential-oils-2589779_1280.jpg" alt="Bold Statement luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
+                        <img src="/image/mahal bgt.jpg" alt="Bold Statement luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
                         <div class="absolute top-4 left-4">
                             <span class="bg-warning text-background px-3 py-1 rounded-full text-sm font-semibold">Limited Edition</span>
                         </div>
-                        <div class="absolute top-4 right-4">
-                            <button onclick="toggleWishlist(3)" class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-primary transition-fast">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-xl font-playfair font-bold">Bold Statement</h3>
                             <div class="flex items-center space-x-1">
                                 <div class="flex text-primary">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
                                 <span class="text-sm text-text-secondary ml-1">(5.0)</span>
                             </div>
                         </div>
-                        <p class="text-text-secondary mb-4 text-sm">Make an unforgettable impression with black pepper, leather, and vanilla - for those who dare to stand out.</p>
+                        <p class="text-text-secondary mb-4 text-sm flex-grow">Make an unforgettable impression with black pepper, leather, and vanilla - for those who dare to stand out.</p>
                         <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl font-bold text-primary">Rp 4.500.000</span>
-                            </div>
+                             <span class="text-2xl font-bold text-primary">Rp 4.500.000</span>
                             <span class="text-sm text-accent">100ml</span>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Longevity:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Projection:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button onclick="openProductModal(3)" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        <div class="flex space-x-3 mt-auto pt-6">
+                            <button onclick="openProductModal('prod003')" class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-sm">
                                 View Details
                             </button>
-                            <button onclick="addToCart(3)" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
-                                </svg>
+                            <button onclick="addToCart('prod003')" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4 - Elegant Grace -->
-                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal flex flex-col" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Elegant Grace luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
-                        <div class="absolute top-4 right-4">
-                            <button onclick="toggleWishlist(4)" class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-primary transition-fast">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-xl font-playfair font-bold">Elegant Grace</h3>
                             <div class="flex items-center space-x-1">
                                 <div class="flex text-primary">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-secondary-600" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
+                                   <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 text-secondary-600" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
                                 <span class="text-sm text-text-secondary ml-1">(4.8)</span>
                             </div>
                         </div>
-                        <p class="text-text-secondary mb-4 text-sm">Refined sophistication with white tea, peony, and musk - perfect for those who embody quiet confidence.</p>
+                        <p class="text-text-secondary mb-4 text-sm flex-grow">Refined sophistication with white tea, peony, and musk - perfect for those who embody quiet confidence.</p>
                         <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl font-bold text-primary">Rp 2.950.000</span>
-                            </div>
+                            <span class="text-2xl font-bold text-primary">Rp 2.950.000</span>
                             <span class="text-sm text-accent">50ml</span>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Longevity:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Projection:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button onclick="openProductModal(4)" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        <div class="flex space-x-3 mt-auto pt-6">
+                            <button onclick="openProductModal('prod004')" class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-sm">
                                 View Details
                             </button>
-                            <button onclick="addToCart(4)" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
-                                </svg>
+                            <button onclick="addToCart('prod004')" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 5 - Power Surge -->
-                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal flex flex-col" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative overflow-hidden">
                         <img src="https://images.pexels.com/photos/4226881/pexels-photo-4226881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Power Surge luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pixabay.com/photo/2017/08/06/12/52/essential-oils-2589779_1280.jpg'; this.onerror=null;" />
-                        <div class="absolute top-4 right-4">
-                            <button onclick="toggleWishlist(5)" class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-primary transition-fast">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-xl font-playfair font-bold">Power Surge</h3>
                             <div class="flex items-center space-x-1">
                                 <div class="flex text-primary">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-secondary-600" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 text-secondary-600" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
                                 <span class="text-sm text-text-secondary ml-1">(4.6)</span>
                             </div>
                         </div>
-                        <p class="text-text-secondary mb-4 text-sm">Energizing citrus blend with grapefruit, mint, and cedar - your daily dose of motivation and drive.</p>
+                        <p class="text-text-secondary mb-4 text-sm flex-grow">Energizing citrus blend with grapefruit, mint, and cedar - your daily dose of motivation and drive.</p>
                         <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl font-bold text-primary">Rp 2.250.000</span>
-                            </div>
+                            <span class="text-2xl font-bold text-primary">Rp 2.250.000</span>
                             <span class="text-sm text-accent">50ml</span>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Longevity:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Projection:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button onclick="openProductModal(5)" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        <div class="flex space-x-3 mt-auto pt-6">
+                            <button onclick="openProductModal('prod005')" class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-sm">
                                 View Details
                             </button>
-                            <button onclick="addToCart(5)" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
-                                </svg>
+                            <button onclick="addToCart('prod005')" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 6 - Midnight Mystique -->
-                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-surface rounded-lg shadow-subtle border border-secondary-800 overflow-hidden group hover:shadow-hover transition-normal flex flex-col" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1609205807107-e8ec2120f9de?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Midnight Mystique luxury perfume bottle" class="w-full h-80 object-cover group-hover:scale-105 transition-slow" onerror="this.src='https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
-                        <div class="absolute top-4 right-4">
-                            <button onclick="toggleWishlist(6)" class="w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-primary transition-fast">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-xl font-playfair font-bold">Midnight Mystique</h3>
                             <div class="flex items-center space-x-1">
                                 <div class="flex text-primary">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 </div>
                                 <span class="text-sm text-text-secondary ml-1">(4.9)</span>
                             </div>
                         </div>
-                        <p class="text-text-secondary mb-4 text-sm">Seductive evening fragrance with dark chocolate, patchouli, and rose - for unforgettable nights.</p>
+                        <p class="text-text-secondary mb-4 text-sm flex-grow">Seductive evening fragrance with dark chocolate, patchouli, and rose - for unforgettable nights.</p>
                         <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-2xl font-bold text-primary">Rp 3.750.000</span>
-                            </div>
+                            <span class="text-2xl font-bold text-primary">Rp 3.750.000</span>
                             <span class="text-sm text-accent">75ml</span>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Longevity:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-text-secondary">Projection:</span>
                                 <div class="flex space-x-1">
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                    <div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-primary rounded-full"></div><div class="w-2 h-2 bg-secondary-600 rounded-full"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button onclick="openProductModal(6)" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                        <div class="flex space-x-3 mt-auto pt-6">
+                            <button onclick="openProductModal('prod006')" class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal text-sm">
                                 View Details
                             </button>
-                            <button onclick="addToCart(6)" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
-                                </svg>
+                            <button onclick="addToCart('prod006')" class="px-4 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Load More Button -->
-            <div class="text-center" data-aos="fade-up">
-                <button class="bg-surface border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal">
-                    Load More Products
-                </button>
             </div>
         </div>
     </section>
-
     <!-- Customer Testimonials Section -->
     <section class="py-20 bg-surface">
         <div class="container mx-auto px-6">
@@ -768,93 +583,75 @@
                     Take our personalized scent quiz to discover the perfect fragrance that matches your personality and boosts your confidence.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="openScientFinder()" class="bg-primary text-background px-8 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                    <a href="quiz.html" class="bg-primary text-background px-8 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
                         Take Scent Quiz
                     </button>
-                    <a href="signature_collections.html" class="border border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal inline-block">
+                    <a href="signatures_collections.html" class="border border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-background transition-normal inline-block">
                         Browse Collections
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-surface py-16 border-t border-secondary-800">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <!-- Brand -->
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <svg class="w-8 h-8 text-primary" viewBox="0 0 40 40" fill="currentColor">
-                            <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
-                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
-                        </svg>
-                        <span class="text-xl font-playfair font-bold text-primary">ByeBye BB</span>
-                    </div>
-                    <p class="text-text-secondary mb-4">Luxury parfum house crafting confidence through premium fragrances.</p>
-                    <div class="flex space-x-4">
-                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </a>
-                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                            </svg>
-                        </a>
-                        <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
-                            </svg>
-                        </a>
-                    </div>
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-12 mb-8">
+            
+            <div>
+                <div class="flex items-center space-x-3 mb-6">
+                    <svg class="w-8 h-8 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                        <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-playfair font-bold text-primary">ByeBye BB</span>
                 </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="font-playfair font-bold text-lg mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a></li>
-                        <li><a href="signature_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a></li>
-                        <li><a href="featured_products.html" class="text-text-secondary hover:text-primary transition-fast">Products</a></li>
-                        <li><a href="customer_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a></li>
-                    </ul>
-                </div>
-
-                <!-- Customer Care -->
-                <div>
-                    <h4 class="font-playfair font-bold text-lg mb-4">Customer Care</h4>
-                    <ul class="space-y-2">
-                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Contact Us</a></li>
-                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Shipping Info</a></li>
-                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Returns</a></li>
-                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-fast">Size Guide</a></li>
-                    </ul>
-                </div>
-
-                <!-- Newsletter -->
-                <div>
-                    <h4 class="font-playfair font-bold text-lg mb-4">Stay Connected</h4>
-                    <p class="text-text-secondary mb-4">Subscribe for exclusive launches and confidence tips.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email" class="flex-1 bg-background border border-secondary-700 rounded-l-lg px-4 py-2 text-text-primary focus:outline-none focus:border-primary" />
-                        <button class="bg-primary text-background px-4 py-2 rounded-r-lg hover:bg-primary-600 transition-fast">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                <p class="text-text-secondary mb-4">Luxury parfum house crafting confidence through premium fragrances.</p>
+                
+                <div class="flex items-center space-x-8">
+    <a href="https://www.instagram.com/rajahumanis" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-primary transition-fast">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.232-.047h.001zM8 4.887a3.113 3.113 0 1 0 0 6.226 3.113 3.113 0 0 0 0-6.226zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.949-8.405a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25z"/>
+        </svg>
+    </a>
+    <a href="https://wa.me/6282114916959" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-primary transition-fast">
+         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.1-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+</div>
             </div>
-
-            <div class="border-t border-secondary-800 pt-8 text-center">
-                <p class="text-text-secondary">© 2025 ByeBye BB Luxury Parfum. All Rights Reserved.</p>
+            <div>
+                <h4 class="font-playfair font-bold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="brand_story.html" class="text-text-secondary hover:text-primary transition-fast">Brand Story</a></li>
+                    <li><a href="signatures_collections.html" class="text-text-secondary hover:text-primary transition-fast">Collections</a></li>
+                    <li><a href="featured_products.html" class="text-text-secondary hover:text-primary transition-fast">Products</a></li>
+                    <li><a href="costumers_testimonials.html" class="text-text-secondary hover:text-primary transition-fast">Testimonials</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-playfair font-bold text-lg mb-4">Give Us Feedback</h4>
+                <p class="text-text-secondary mb-4">Have an idea for our next fragrance? Let us know your thoughts to help us innovate.</p>
+                <form>
+                    <textarea 
+                        placeholder="Write your suggestion here..." 
+                        class="w-full bg-background border border-secondary-700 rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:border-primary" 
+                        rows="3"
+                    ></textarea>
+                    <button 
+                        type="submit" 
+                        class="w-full mt-3 bg-primary text-background px-4 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-fast"
+                    >
+                        Send Feedback
+                    </button>
+                </form>
             </div>
         </div>
-    </footer>
-
+        <div class="border-t border-secondary-800 pt-8 text-center">
+            <p class="text-text-secondary">© 2025 ByeBye BB Luxury Parfum. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
     <!-- Search Overlay -->
     <div id="searchOverlay" class="fixed inset-0 bg-background/95 backdrop-blur-md z-50 hidden">
         <div class="container mx-auto px-6 py-20">
@@ -890,7 +687,7 @@
                     </button>
                 </div>
                 <div class="p-6">
-                    <div class="space-y-4 mb-6">
+                    <!-- <div class="space-y-4 mb-6">
                         <div class="flex items-center space-x-4">
                             <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=100&auto=format&fit=crop" alt="Product" class="w-16 h-16 object-cover rounded" />
                             <div class="flex-1">
@@ -904,7 +701,7 @@
                         <div class="flex justify-between items-center mb-4">
                             <span class="font-semibold">Total:</span>
                             <span class="text-xl font-bold text-primary">Rp 2.750.000</span>
-                        </div>
+                        </div> -->
                         <button class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
                             Checkout
                         </button>
@@ -915,215 +712,276 @@
     </div>
 
     <!-- Product Detail Modal -->
-    <div id="productModal" class="fixed inset-0 bg-background/95 backdrop-blur-md z-50 hidden">
-        <div class="container mx-auto px-6 py-20">
-            <div class="max-w-4xl mx-auto bg-surface rounded-lg shadow-modal">
-                <div class="flex items-center justify-between p-6 border-b border-secondary-800">
+    <div id="productModal" class="fixed inset-0 bg-background/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+            <div class="w-full max-w-3xl bg-surface rounded-lg shadow-modal max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-surface/80 backdrop-blur-sm flex items-center justify-between p-6 border-b border-secondary-800 z-10">
                     <h2 class="text-xl font-playfair font-bold">Product Details</h2>
                     <button onclick="closeProductModal()" class="text-text-secondary hover:text-primary transition-fast">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
                 </div>
-                <div id="productModalContent" class="p-6">
-                    <!-- Content will be dynamically loaded -->
-                </div>
+                <div id="productModalContent" class="p-6 md:p-8">
+                    </div>
             </div>
         </div>
-    </div>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 600,
+        easing: 'ease-out',
+        once: true,
+        offset: 100
+    });
 
-    <!-- Scent Finder Modal -->
-    <div id="scentFinderModal" class="fixed inset-0 bg-background/95 backdrop-blur-md z-50 hidden">
-        <div class="container mx-auto px-6 py-20">
-            <div class="max-w-2xl mx-auto bg-surface rounded-lg shadow-modal">
-                <div class="flex items-center justify-between p-6 border-b border-secondary-800">
-                    <h2 class="text-xl font-playfair font-bold">Find Your Perfect Scent</h2>
-                    <button onclick="closeScentFinder()" class="text-text-secondary hover:text-primary transition-fast">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
+    // =================================================================
+    // DATABASE PRODUK LENGKAP
+    // =================================================================
+// =================================================================
+    // DATABASE PRODUK LENGKAP
+    // =================================================================
+    const productsOnPage = [
+        {
+            id: 'prod001',
+            name: 'Confidence Elixir',
+            price: 2750000,
+            image: '/image/parfum 3.png',
+            description: 'A bold blend of Bulgarian rose, Cambodian oud, and bergamot that transforms doubt into unshakeable confidence.',
+            topNotes: 'Calabrian Bergamot, Pink Pepper',
+            heartNotes: 'Bulgarian Rose, Jasmine Sambac',
+            baseNotes: 'Cambodian Oud, Sandalwood, Amber'
+        },
+        {
+            id: 'prod002',
+            name: 'Victory Essence',
+            price: 3150000,
+            image: '/image/parfum 6.jpg',
+            description: 'Celebrate your achievements with sandalwood, jasmine, and amber - a scent that embodies success and triumph.',
+            topNotes: 'Grapefruit, Marine Accord',
+            heartNotes: 'Bay Leaf, Jasmine',
+            baseNotes: 'Guaiac Wood, Oakmoss, Ambergris'
+        },
+        {
+            id: 'prod003',
+            name: 'Bold Statement',
+            price: 4500000,
+            // URL DIPERBAIKI -- Menggunakan link langsung dari CDN Pixabay
+            image: '/image/parfum 5.png',
+            description: 'Make an unforgettable impression with black pepper, leather, and vanilla - for those who dare to stand out.',
+            topNotes: 'Black Pepper, Cardamom',
+            heartNotes: 'Leather, Saffron, Tobacco',
+            baseNotes: 'Vanilla, Oud, Vetiver'
+        },
+        {
+            id: 'prod004',
+            name: 'Elegant Grace',
+            price: 2950000,
+            image: '/image/parfum 4.png',
+            description: 'Refined sophistication with white tea, peony, and musk - perfect for those who embody quiet confidence.',
+            topNotes: 'White Tea, Pear',
+            heartNotes: 'Peony, Freesia, Rose',
+            baseNotes: 'White Musk, Cedarwood'
+        },
+        {
+            id: 'prod005',
+            name: 'Power Surge',
+            price: 2250000,
+            image: '/image/parfum.png',
+            description: 'Energizing citrus blend with grapefruit, mint, and cedar - your daily dose of motivation and drive.',
+            topNotes: 'Grapefruit, Mint, Lemon',
+            heartNotes: 'Ginger, Nutmeg, Jasmine',
+            baseNotes: 'Cedarwood, Vetiver, Incense'
+        },
+        {
+            id: 'prod006',
+            name: 'Midnight Mystique',
+            price: 3750000,
+            // URL DIPERBAIKI -- Menggunakan versi URL yang lebih sederhana
+            image: '/image/parfum 2.png',
+            description: 'Seductive evening fragrance with dark chocolate, patchouli, and rose - for unforgettable nights.',
+            topNotes: 'Raspberry, Saffron',
+            heartNotes: 'Dark Chocolate, Rose, Incense',
+            baseNotes: 'Patchouli, Oud, Leather'
+        }
+    ];
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+    }
+
+    // Search overlay functions
+    function openSearch() {
+        document.getElementById('searchOverlay').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSearch() {
+        document.getElementById('searchOverlay').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Cart modal functions
+    function openCart() {
+        document.getElementById('cartModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+        document.getElementById('cartModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Product modal functions (VERSI TERBARU DENGAN FIX TINGGI GAMBAR)
+    function openProductModal(productId) {
+        const product = productsOnPage.find(p => p.id === productId);
+        if (!product) {
+            console.error("Product not found!");
+            return;
+        }
+
+        const modal = document.getElementById('productModal');
+        const modalTitle = document.querySelector('#productModal h2');
+        const modalContent = document.getElementById('productModalContent');
+
+        if (modalTitle) {
+            modalTitle.textContent = product.name;
+        }
+
+        modalContent.innerHTML = `
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <div>
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-80 object-cover rounded-lg">
                 </div>
-                <div class="p-6">
-                    <p class="text-text-secondary mb-6">Answer a few questions to discover your signature fragrance that matches your personality and lifestyle.</p>
-                    <button class="w-full bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
-                        Start Quiz
-                    </button>
+                <div>
+                    <h3 class="text-3xl font-playfair font-bold mb-3">${product.name}</h3>
+                    <p class="text-3xl font-bold text-primary mb-4">Rp ${product.price.toLocaleString('id-ID')}</p>
+                    <p class="text-text-secondary mb-6">${product.description}</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-primary mb-1">Top Notes</h4>
+                            <p class="text-text-secondary">${product.topNotes}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary mb-1">Heart Notes</h4>
+                            <p class="text-text-secondary">${product.heartNotes}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary mb-1">Base Notes</h4>
+                            <p class="text-text-secondary">${product.baseNotes}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <button onclick="addToCart('${product.id}')" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
+                            Add to Cart
+                        </button>
+                        <button onclick="toggleWishlist('${product.id}')" class="px-5 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        `;
+        
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
 
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 600,
-            easing: 'ease-out',
-            once: true,
-            offset: 100
+    function closeProductModal() {
+        document.getElementById('productModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Scent finder functions
+    function openScentFinder() {
+        document.getElementById('scentFinderModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeScentFinder() {
+        document.getElementById('scentFinderModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Wishlist functions
+    function toggleWishlist(productId) {
+        alert('Toggled wishlist for product: ' + productId);
+    }
+
+    // Add to cart function
+    function addToCart(productId) {
+        const productToAdd = productsOnPage.find(p => p.id === productId);
+        if (!productToAdd) {
+            console.error("Produk dengan ID tersebut tidak ditemukan!");
+            return;
+        }
+        
+        const savedCart = localStorage.getItem('byebyebb_cart');
+        let cartItems = savedCart ? JSON.parse(savedCart) : [];
+        
+        const existingItem = cartItems.find(item => item.id === productId);
+        
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cartItems.push({ ...productToAdd, quantity: 1 });
+        }
+        
+        localStorage.setItem('byebyebb_cart', JSON.stringify(cartItems));
+        
+        alert(`${productToAdd.name} telah ditambahkan ke keranjang!`);
+        updateHeaderCartCount();
+    }
+
+    // Fungsi untuk mengupdate angka pada ikon keranjang di header
+    function updateHeaderCartCount() {
+        const savedCart = localStorage.getItem('byebyebb_cart');
+        const cartItems = savedCart ? JSON.parse(savedCart) : [];
+        const totalItems = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
+        const cartCountElement = document.getElementById('headerCartCount');
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+        }
+    }
+
+    // Panggil fungsi ini saat halaman pertama kali dimuat
+    document.addEventListener('DOMContentLoaded', updateHeaderCartCount);
+
+    // Scroll to products section
+    function scrollToProducts() {
+        document.getElementById('products').scrollIntoView({
+            behavior: 'smooth'
         });
+    }
 
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+    // Close modals on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeSearch();
+            closeCart();
+            closeProductModal();
+            closeScentFinder();
         }
-
-        // Search overlay functions
-        function openSearch() {
-            document.getElementById('searchOverlay').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeSearch() {
-            document.getElementById('searchOverlay').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Cart modal functions
-        function openCart() {
-            document.getElementById('cartModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCart() {
-            document.getElementById('cartModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Product modal functions
-        function openProductModal(productId) {
-            const products = {
-                1: {
-                    name: 'Confidence Elixir',
-                    price: 'Rp 2.750.000',
-                    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=400&auto=format&fit=crop',
-                    description: 'A bold blend of Bulgarian rose, Cambodian oud, and bergamot that transforms doubt into unshakeable confidence.',
-                    notes: {
-                        top: 'Calabrian Bergamot, Pink Pepper',
-                        heart: 'Bulgarian Rose, Jasmine Sambac',
-                        base: 'Cambodian Oud, Sandalwood, Amber'
-                    }
-                },
-                2: {
-                    name: 'Victory Essence',
-                    price: 'Rp 3.150.000',
-                    image: 'https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=400',
-                    description: 'Celebrate your achievements with sandalwood, jasmine, and amber - a scent that embodies success and triumph.',
-                    notes: {
-                        top: 'Mandarin, Cardamom',
-                        heart: 'Jasmine, Sandalwood',
-                        base: 'Amber, Vanilla, Musk'
-                    }
-                }
-            };
-
-            const product = products[productId] || products[1];
-            const content = `
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg">
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-playfair font-bold mb-4">${product.name}</h3>
-                        <p class="text-3xl font-bold text-primary mb-4">${product.price}</p>
-                        <p class="text-text-secondary mb-6">${product.description}</p>
-                        
-                        <div class="space-y-4 mb-6">
-                            <div>
-                                <h4 class="font-semibold text-primary mb-2">Top Notes</h4>
-                                <p class="text-text-secondary">${product.notes.top}</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-primary mb-2">Heart Notes</h4>
-                                <p class="text-text-secondary">${product.notes.heart}</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-primary mb-2">Base Notes</h4>
-                                <p class="text-text-secondary">${product.notes.base}</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex space-x-4">
-                            <button onclick="addToCart(${productId})" class="flex-1 bg-primary text-background py-3 rounded-lg font-semibold hover:bg-primary-600 transition-normal">
-                                Add to Cart
-                            </button>
-                            <button onclick="toggleWishlist(${productId})" class="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-background transition-normal">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('productModalContent').innerHTML = content;
-            document.getElementById('productModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeProductModal() {
-            document.getElementById('productModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Scent finder functions
-        function openScientFinder() {
-            document.getElementById('scentFinderModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeScentFinder() {
-            document.getElementById('scentFinderModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Wishlist functions
-        function toggleWishlist(productId) {
-            // Toggle wishlist functionality
-            console.log('Toggled wishlist for product:', productId);
-        }
-
-        // Add to cart function
-        function addToCart(productId) {
-            // Add to cart functionality
-            console.log('Added to cart:', productId);
-            // Show success message or update cart count
-        }
-
-        // Scroll to products section
-        function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Close modals on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeSearch();
-                closeCart();
-                closeProductModal();
-                closeScentFinder();
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>
